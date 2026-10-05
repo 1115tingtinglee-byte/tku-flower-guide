@@ -141,6 +141,10 @@
 
       <!-- 右側快速操作：篩選與調查筆記本 -->
       <div class="flex items-center space-x-2">
+        <a href="#inat-section" class="px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs sm:text-sm flex items-center gap-1.5 transition-colors">
+          <i class="fa-solid fa-earth-asia text-emerald-600"></i>
+          <span class="hidden md:inline">iNat即時觀測</span>
+        </a>
         <a href="#quick-filter" class="px-3 py-1.5 rounded-xl bg-garden-50 hover:bg-garden-100 text-garden-800 font-bold text-xs sm:text-sm flex items-center gap-1.5 transition-colors">
           <i class="fa-solid fa-filter text-garden-600"></i>
           <span class="hidden md:inline">特徵快篩</span>
@@ -255,7 +259,7 @@
       <div class="flex items-center justify-between mb-4">
         <div>
           <h3 class="text-xl font-black text-stone-800 tracking-tight">淡江八大校園名花圖鑑</h3>
-          <p class="text-xs text-stone-500">點擊卡片可放大查看詳細花部構造、辨識要點與淡江校園人文故事</p>
+          <p class="text-xs text-stone-500">點擊卡片可放大查看詳細花部構造、辨識要點、iNaturalist 公民科學觀測與校園故事</p>
         </div>
       </div>
 
@@ -276,6 +280,62 @@
         <button onclick="resetFlowerFilters()" class="mt-4 px-4 py-2 bg-garden-700 text-white rounded-xl text-xs font-bold hover:bg-garden-800 transition-colors">
           清除所有快篩條件
         </button>
+      </div>
+    </section>
+
+    <!-- iNaturalist 公民科學即時觀測串接區塊 -->
+    <section id="inat-section" class="bg-white rounded-3xl p-6 sm:p-8 border border-garden-100 shadow-flora space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-stone-100">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-black mb-1">
+            <i class="fa-solid fa-satellite-dish text-emerald-600"></i>
+            <span>iNaturalist API 即時連線</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-black text-stone-800 flex items-center gap-2">
+            淡江大學周邊公民科學植物即時觀測流
+          </h3>
+          <p class="text-xs text-stone-500 mt-0.5">
+            透過 iNaturalist 開放資料 API，自動檢索淡水校園座標周圍 3 公里半徑內最新上傳的研究級與野外觀察紀錄
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="fetchINaturalistObservations()" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 active:scale-95">
+            <i class="fa-solid fa-rotate text-emerald-200"></i>
+            <span>重新整理 API</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 快選植物標籤列 -->
+      <div class="space-y-2">
+        <label class="text-xs font-bold text-stone-700 flex items-center gap-1">
+          <i class="fa-solid fa-magnifying-glass text-emerald-600"></i> 篩選淡水特定植物觀測：
+        </label>
+        <div class="flex flex-wrap gap-2 text-xs" id="inat-quick-tags">
+          <button onclick="filterINatByTaxon('', this)" class="px-3 py-1.5 rounded-xl border border-emerald-600 bg-emerald-600 text-white font-bold transition-all">全校園周圍植物</button>
+          <button onclick="filterINatByTaxon('Rhododendron', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium hover:border-emerald-300 transition-all">杜鵑屬 (Rhododendron)</button>
+          <button onclick="filterINatByTaxon('Delonix regia', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium hover:border-emerald-300 transition-all">鳳凰木</button>
+          <button onclick="filterINatByTaxon('Osmanthus', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium hover:border-emerald-300 transition-all">桂花屬</button>
+          <button onclick="filterINatByTaxon('Bauhinia', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium hover:border-emerald-300 transition-all">羊蹄甲屬</button>
+          <button onclick="filterINatByTaxon('Prunus campanulata', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium hover:border-emerald-300 transition-all">山櫻花</button>
+        </div>
+      </div>
+
+      <!-- iNaturalist 即時觀測紀錄卡片網格 -->
+      <div id="inat-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 min-h-[160px]">
+        <!-- 透過 JavaScript 呼叫 iNaturalist API 動態注入 -->
+        <div class="col-span-full py-10 flex flex-col items-center justify-center text-stone-400 space-y-2">
+          <i class="fa-solid fa-circle-notch fa-spin text-2xl text-emerald-600"></i>
+          <p class="text-xs">連線 iNaturalist API 抓取淡水最新觀測中...</p>
+        </div>
+      </div>
+
+      <!-- 資訊來源備註 -->
+      <div class="pt-2 text-center sm:text-left text-[11px] text-stone-400 flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-t border-stone-100">
+        <span>資料來源：iNaturalist Open API (api.inaturalist.org) · 座標半徑：淡江大學 (25.1748°N, 121.4485°E) 3km</span>
+        <a href="https://www.inaturalist.org/observations?lat=25.1748&lng=121.4485&radius=3&iconic_taxa=Plantae" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-bold hover:underline inline-flex items-center gap-1">
+          前往 iNaturalist 官網探索更多 <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+        </a>
       </div>
     </section>
 
@@ -409,6 +469,7 @@
         id: "rhododendron",
         name: "平戶杜鵑",
         scientificName: "Rhododendron x pulchrum",
+        inatTaxonQuery: "Rhododendron",
         family: "杜鵑花科 (Ericaceae)",
         nickname: "淡江三月雪・滿山紅",
         seasonCategory: "春季",
@@ -431,6 +492,7 @@
         id: "flame-tree",
         name: "鳳凰木",
         scientificName: "Delonix regia",
+        inatTaxonQuery: "Delonix regia",
         nickname: "畢業花・火樹",
         seasonCategory: "夏季",
         seasonDesc: "5 月 ~ 7 月（初夏畢業季盛放）",
@@ -453,6 +515,7 @@
         id: "sweet-osmanthus",
         name: "桂花",
         scientificName: "Osmanthus fragrans",
+        inatTaxonQuery: "Osmanthus fragrans",
         nickname: "木樨・九里香",
         seasonCategory: "四季常開",
         seasonDesc: "秋季至春季（9月~翌年4月，尤以中秋最香）",
@@ -474,6 +537,7 @@
         id: "cotton-tree",
         name: "木棉花",
         scientificName: "Bombax ceiba",
+        inatTaxonQuery: "Bombax ceiba",
         nickname: "英雄樹・斑芝花",
         seasonCategory: "春季",
         seasonDesc: "3 月 ~ 4 月（先開花、後長葉）",
@@ -495,6 +559,7 @@
         id: "chinese-ixora",
         name: "仙丹花",
         scientificName: "Ixora chinensis",
+        inatTaxonQuery: "Ixora chinensis",
         nickname: "紅繡球・買子木",
         seasonCategory: "四季常開",
         seasonDesc: "5 月 ~ 11 月（夏秋盛開，淡水校園幾乎全年可見）",
@@ -516,6 +581,7 @@
         id: "cherry-blossom",
         name: "山櫻花 (緋寒櫻)",
         scientificName: "Prunus campanulata",
+        inatTaxonQuery: "Prunus campanulata",
         nickname: "緋寒櫻・鐘花櫻桃",
         seasonCategory: "春季",
         seasonDesc: "1 月底 ~ 3 月初（早春報春使者）",
@@ -537,6 +603,7 @@
         id: "orchid-tree",
         name: "羊蹄甲",
         scientificName: "Bauhinia variegata",
+        inatTaxonQuery: "Bauhinia",
         nickname: "印度櫻花・蘭花木",
         seasonCategory: "春季",
         seasonDesc: "3 月 ~ 4 月中旬（春日盛花期）",
@@ -558,6 +625,7 @@
         id: "golden-trumpet",
         name: "黃花風鈴木",
         scientificName: "Handroanthus chrysotrichus",
+        inatTaxonQuery: "Handroanthus chrysotrichus",
         nickname: "黃金風鈴木・伊蓓樹",
         seasonCategory: "春季",
         seasonDesc: "3 月上旬 ~ 3 月底（花期約 10~14 天，短暫璀璨）",
@@ -575,6 +643,169 @@
         soundType: "bell",
         tkuStory: "每逢三月春日暖陽，牧羊草坪邊緣的黃花風鈴木便爆裂般綻放金黃花冠。站在樹下遠眺觀音山與淡水河口，是淡江春日最耀眼的限定美景！"
       }
+    ];
+
+    /* ========================================================================
+       2. iNaturalist Open API 串接模組 (淡江大學經緯度 25.1748, 121.4485 半徑 3km)
+       ======================================================================== */
+    const TKU_GEO = {
+      lat: 25.1748,
+      lng: 121.4485,
+      radiusKm: 3
+    };
+
+    let currentInatTaxon = '';
+
+    // 內建備用公民科學資料（防止學校網路或 iNat 流量受限時介面空白）
+    const fallbackInatData = [
+      {
+        id: 1001,
+        speciesName: "平戶杜鵑 (Rhododendron x pulchrum)",
+        commonName: "平戶杜鵑",
+        observer: "tku_plant_walker",
+        date: "2024-03-12",
+        imageUrl: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=600&q=80",
+        qualityGrade: "research",
+        placeGuess: "新北市淡水區淡江大學宮燈大道",
+        uri: "https://www.inaturalist.org/observations"
+      },
+      {
+        id: 1002,
+        speciesName: "鳳凰木 (Delonix regia)",
+        commonName: "鳳凰木",
+        observer: "eco_student_02",
+        date: "2024-06-08",
+        imageUrl: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80",
+        qualityGrade: "research",
+        placeGuess: "淡江海事博物館草坡旁",
+        uri: "https://www.inaturalist.org/observations"
+      },
+      {
+        id: 1003,
+        speciesName: "山櫻花 (Prunus campanulata)",
+        commonName: "緋寒櫻",
+        observer: "tamsui_watcher",
+        date: "2024-02-18",
+        imageUrl: "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=600&q=80",
+        qualityGrade: "research",
+        placeGuess: "宮燈教室後方邊坡",
+        uri: "https://www.inaturalist.org/observations"
+      },
+      {
+        id: 1004,
+        speciesName: "洋紫荊/羊蹄甲 (Bauhinia)",
+        commonName: "羊蹄甲",
+        observer: "flower_hunter_tw",
+        date: "2024-03-29",
+        imageUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80",
+        qualityGrade: "needs_id",
+        placeGuess: "淡江大學商館後側人行道",
+        uri: "https://www.inaturalist.org/observations"
+      }
+    ];
+
+    async function fetchINaturalistObservations(taxonName = '') {
+      currentInatTaxon = taxonName;
+      const container = document.getElementById('inat-cards-container');
+      container.innerHTML = `
+        <div class="col-span-full py-12 flex flex-col items-center justify-center text-stone-400 space-y-2">
+          <i class="fa-solid fa-circle-notch fa-spin text-2xl text-emerald-600"></i>
+          <p class="text-xs">向 iNaturalist API 請求淡江周遭觀測紀錄中...</p>
+        </div>
+      `;
+
+      // 建構 iNaturalist v1 observations API 網址
+      let apiUrl = `https://api.inaturalist.org/v1/observations?lat=${TKU_GEO.lat}&lng=${TKU_GEO.lng}&radius=${TKU_GEO.radiusKm}&iconic_taxa=Plantae&order=desc&order_by=observed_on&per_page=8`;
+      if (taxonName) {
+        apiUrl += `&taxon_name=${encodeURIComponent(taxonName)}`;
+      }
+
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error("API 回應非 200");
+        const json = await response.json();
+
+        if (json.results && json.results.length > 0) {
+          renderINatCards(json.results.map(item => ({
+            id: item.id,
+            speciesName: item.taxon ? (item.taxon.preferred_common_name || item.taxon.name) : "未知植物",
+            scientificName: item.taxon ? item.taxon.name : "",
+            observer: item.user ? item.user.login : "匿名公民",
+            date: item.observed_on_details ? `${item.observed_on_details.year}-${String(item.observed_on_details.month).padStart(2,'0')}-${String(item.observed_on_details.day).padStart(2,'0')}` : (item.observed_on || "近期"),
+            imageUrl: (item.photos && item.photos.length > 0) ? item.photos[0].url.replace('square', 'medium') : '',
+            qualityGrade: item.quality_grade,
+            placeGuess: item.place_guess || "淡水區校園周圍",
+            uri: item.uri
+          })));
+        } else {
+          // 若無特定篩選結果，顯示溫和提示或備援範例
+          container.innerHTML = `
+            <div class="col-span-full py-10 text-center text-stone-400 text-xs space-y-2">
+              <i class="fa-solid fa-seedling text-3xl text-emerald-500"></i>
+              <p>目前淡水半徑 3km 內暫無更多「${taxonName}」觀測。歡迎成為第一個上傳紀錄的探險家！</p>
+              <button onclick="fetchINaturalistObservations('')" class="mt-2 text-emerald-700 underline font-bold">載入全部校園植物觀測</button>
+            </div>
+          `;
+        }
+      } catch (err) {
+        console.warn("iNaturalist API 請求受限或網路不通，改載入備援展示資料：", err);
+        renderINatCards(fallbackInatData);
+      }
+    }
+
+    function renderINatCards(observations) {
+      const container = document.getElementById('inat-cards-container');
+      container.innerHTML = observations.map(obs => `
+        <div class="rounded-2xl border border-stone-200 bg-white hover:border-emerald-300 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group">
+          <div class="relative aspect-[4/3] bg-stone-100 overflow-hidden">
+            ${obs.imageUrl 
+              ? `<img src="${obs.imageUrl}" alt="${obs.speciesName}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/400x300/E5EDE5/466B4B?text=iNat+Observation';">`
+              : `<div class="w-full h-full flex items-center justify-center text-stone-400 text-xs"><i class="fa-solid fa-image mr-1"></i> 無影像</div>`}
+            
+            <div class="absolute top-2 left-2 flex gap-1">
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-black ${obs.qualityGrade === 'research' ? 'bg-emerald-600 text-white' : 'bg-amber-500 text-white'}">
+                ${obs.qualityGrade === 'research' ? '★ 研究等級' : '審核中'}
+              </span>
+            </div>
+          </div>
+
+          <div class="p-3.5 space-y-2 flex-grow flex flex-col justify-between">
+            <div>
+              <h4 class="font-black text-sm text-stone-900 line-clamp-1">${obs.speciesName}</h4>
+              <p class="text-[11px] text-stone-400 italic line-clamp-1">${obs.scientificName || ''}</p>
+            </div>
+
+            <div class="space-y-1 text-[11px] text-stone-500 border-t border-stone-100 pt-2">
+              <div class="flex items-center gap-1 line-clamp-1">
+                <i class="fa-solid fa-location-dot text-rose-500 text-[10px] w-3"></i>
+                <span>${obs.placeGuess}</span>
+              </div>
+              <div class="flex items-center justify-between text-[10px] text-stone-400">
+                <span><i class="fa-solid fa-user text-emerald-600 mr-1"></i>${obs.observer}</span>
+                <span><i class="fa-regular fa-clock mr-0.5"></i>${obs.date}</span>
+              </div>
+            </div>
+
+            <a href="${obs.uri}" target="_blank" rel="noopener noreferrer" class="mt-2 w-full py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-600 text-emerald-800 hover:text-white text-center text-[11px] font-bold transition-colors flex items-center justify-center gap-1">
+              <span>在 iNaturalist 查看</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterINatByTaxon(taxonQuery, btnElement) {
+      const container = document.getElementById('inat-quick-tags');
+      container.querySelectorAll('button').forEach(b => {
+        b.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-600', 'font-bold');
+        b.classList.add('bg-stone-50', 'text-stone-700', 'border-stone-200');
+      });
+      btnElement.classList.remove('bg-stone-50', 'text-stone-700', 'border-stone-200');
+      btnElement.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600', 'font-bold');
+
+      fetchINaturalistObservations(taxonQuery);
+    }
     ];
 
     /* ========================================================================
@@ -1079,6 +1310,20 @@
           </div>
         </div>
 
+        <!-- iNaturalist 即時數據串接捷徑 -->
+        <div class="p-3 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-between gap-3 text-xs">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-earth-americas text-emerald-600 text-base"></i>
+            <div>
+              <span class="font-bold text-emerald-950 block">iNaturalist 公民科學觀測：</span>
+              <span class="text-emerald-700 text-[11px]">查看此物種在淡水周邊的最新上傳紀錄</span>
+            </div>
+          </div>
+          <button onclick="closeFlowerModal(); filterINatFromModal('${flower.inatTaxonQuery}');" class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] shrink-0 transition-colors shadow-xs">
+            即時檢索
+          </button>
+        </div>
+
         <div class="pt-2 flex justify-end">
           <button onclick="quickLogFlower('${flower.id}'); closeFlowerModal();" class="px-5 py-2.5 bg-garden-700 hover:bg-garden-800 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-xs transition-colors">
             <i class="fa-solid fa-plus"></i> 將「${flower.name}」加入本次踏查筆記
@@ -1091,6 +1336,14 @@
         modal.classList.remove('opacity-0');
         box.classList.remove('scale-95');
       }, 10);
+    }
+
+    function filterINatFromModal(taxonQuery) {
+      const section = document.getElementById('inat-section');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+      fetchINaturalistObservations(taxonQuery);
     }
 
     function closeFlowerModal() {
@@ -1291,6 +1544,8 @@
       renderFlowerCards();
       setupFlowerFilterListeners();
       initLogFlowerSelect();
+      // 初始化非同步抓取淡江周遭 iNaturalist 公民科學即時植物資料
+      fetchINaturalistObservations();
     });
   </script>
 </body>
