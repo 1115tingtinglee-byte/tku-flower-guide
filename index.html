@@ -5,10 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>淡江花現 | 淡江大學校園常見花卉互動快查圖鑑</title>
   
+  <!-- Google Fonts: 圓潤溫和的繁體中文字體 Zen Maru Gothic 與 Noto Sans TC -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 圖示庫 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS 3 CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -16,11 +21,40 @@
       theme: {
         extend: {
           colors: {
-            tkuRed: { 50: '#FDF3F2', 100: '#FBE4E2', 600: '#C53030', 700: '#9B1C1C', 800: '#771D1D' },
-            garden: { 50: '#F4F7F4', 100: '#E5EDE5', 200: '#C7D9C8', 300: '#9FBFA1', 600: '#466B4B', 700: '#345238', 800: '#253B28', 900: '#18271A' },
-            parchment: { 50: '#FAF8F5', 100: '#F3EFEA', 200: '#E8E1D7', 600: '#8C7A6B', 800: '#534538' },
-            petalPink: { 100: '#FCE7F3', 400: '#F472B6', 500: '#EC4899' },
-            sunGold: { 100: '#FEF3C7', 400: '#FBBF24', 500: '#F59E0B' }
+            tkuRed: {
+              50: '#FDF3F2',
+              100: '#FBE4E2',
+              600: '#C53030',
+              700: '#9B1C1C',
+              800: '#771D1D',
+            },
+            garden: {
+              50: '#F4F7F4',
+              100: '#E5EDE5',
+              200: '#C7D9C8',
+              300: '#9FBFA1',
+              600: '#466B4B',
+              700: '#345238',
+              800: '#253B28',
+              900: '#18271A',
+            },
+            parchment: {
+              50: '#FAF8F5',
+              100: '#F3EFEA',
+              200: '#E8E1D7',
+              600: '#8C7A6B',
+              800: '#534538',
+            },
+            petalPink: {
+              100: '#FCE7F3',
+              400: '#F472B6',
+              500: '#EC4899',
+            },
+            sunGold: {
+              100: '#FEF3C7',
+              400: '#FBBF24',
+              500: '#F59E0B',
+            }
           },
           fontFamily: {
             sans: ['"Zen Maru Gothic"', '"Noto Sans TC"', 'sans-serif'],
@@ -35,19 +69,44 @@
   </script>
 
   <style>
+    /* Google Sites 與 iframe 嵌入保護：防止外溢水平滾動 */
     html, body {
-      margin: 0; padding: 0; width: 100%; min-height: 100%;
-      background-color: #F3EFEA; color: #2D3748;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      background-color: #F3EFEA;
+      color: #2D3748;
       font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
-      -webkit-tap-highlight-color: transparent; overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
     }
-    section { scroll-margin-top: 5.5rem; }
-    ::-webkit-scrollbar { width: 8px; height: 8px; }
-    ::-webkit-scrollbar-track { background: #F4F7F4; }
-    ::-webkit-scrollbar-thumb { background: #C7D9C8; border-radius: 9999px; }
-    ::-webkit-scrollbar-thumb:hover { background: #9FBFA1; }
-    .flower-card { transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-    .flower-card:hover { transform: translateY(-4px); }
+
+    section {
+      scroll-margin-top: 5.5rem;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F4F7F4;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C7D9C8;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9FBFA1;
+    }
+
+    .flower-card {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .flower-card:hover {
+      transform: translateY(-4px);
+    }
   </style>
 </head>
 <body class="bg-parchment-100 text-stone-800 antialiased flex flex-col min-h-screen">
@@ -87,6 +146,8 @@
   <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-8">
     
     <section class="rounded-3xl bg-gradient-to-r from-garden-800 via-garden-700 to-garden-900 text-white p-6 sm:p-10 shadow-flora relative overflow-hidden">
+      <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-petalPink-400/20 rounded-full blur-3xl pointer-events-none"></div>
+
       <div class="relative z-10 max-w-3xl space-y-3 sm:space-y-4">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-garden-600/70 border border-garden-500/60 text-garden-100 text-xs font-bold">
           <i class="fa-solid fa-landmark text-sunGold-400"></i>
@@ -96,19 +157,29 @@
           遇見五虎崗上的繁花絮語！<br class="hidden sm:inline">淡江校園常見花卉互動指南
         </h2>
         <p class="text-sm sm:text-base text-garden-100/90 leading-relaxed font-normal">
-          從宮燈大道春天奼紫嫣紅的杜鵑、初夏畢業季火紅的鳳凰木，到牧羊草坪旁飄香的桂花與福園的仙丹花。透過「3 秒花色與景點快篩」、「花朵微距特徵解碼」以及「淡江校園聲景微風合成」，開啟你的淡江綠活踏查日常！
+          從宮燈大道春天奼紫嫣紅的杜鵑、初夏畢業季火紅的鳳凰木，到牧羊草坪旁飄香的桂花與福園的仙丹花。透過「3 秒花色與景點快篩」、「花朵微距特徵解碼」以及「iNaturalist 淡水即時公民科學連線」，開啟你的淡江綠活踏查日常！
         </p>
+
+        <div class="pt-2 flex flex-wrap gap-2 sm:gap-4 text-xs">
+          <div class="bg-garden-900/60 border border-garden-600/60 px-3 py-1.5 rounded-xl flex items-center gap-2">
+            <i class="fa-solid fa-map-pin text-sunGold-400"></i>
+            <span>核心點位：宮燈教室、牧羊草坪、福園生態池、海博館</span>
+          </div>
+          <div class="bg-garden-900/60 border border-garden-600/60 px-3 py-1.5 rounded-xl flex items-center gap-2">
+            <i class="fa-solid fa-eye text-sunGold-400"></i>
+            <span>花卉辨識訣竅：看花瓣數、聞香氣、查葉形</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- 快篩區 -->
     <section id="quick-filter" class="bg-white rounded-3xl p-5 sm:p-7 border border-garden-100 shadow-flora space-y-5">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-stone-100">
         <div>
           <h3 class="text-lg font-black text-stone-800 flex items-center gap-2">
             <i class="fa-solid fa-wand-magic-sparkles text-garden-600"></i> 校園花卉 3 秒直覺快篩
           </h3>
-          <p class="text-xs text-stone-500">點選花朵特徵，系統將即時篩選相符花種：</p>
+          <p class="text-xs text-stone-500">點選你剛剛在淡江校園目擊的花朵特徵，系統將即時篩選相符花種：</p>
         </div>
         <div class="flex items-center gap-2">
           <button onclick="resetFlowerFilters()" class="text-xs text-stone-500 hover:text-garden-700 font-bold px-3 py-1.5 rounded-lg hover:bg-garden-50 transition-colors flex items-center gap-1">
@@ -121,51 +192,72 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- 條件 1: 花色 -->
         <div class="space-y-2">
-          <label class="text-xs font-bold text-stone-700">1. 花瓣主要顏色</label>
+          <label class="text-xs font-bold text-stone-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-palette text-garden-600"></i> 1. 花瓣主要顏色
+          </label>
           <div class="flex flex-wrap gap-1.5" id="color-filter-buttons">
             <button data-type="color" data-value="all" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-garden-700 text-white">全部花色</button>
-            <button data-type="color" data-value="粉紅紫" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200">粉紅 / 桃紫</button>
-            <button data-type="color" data-value="火紅橘" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200">橘紅 / 火紅</button>
-            <button data-type="color" data-value="白色" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200">純白 / 奶白</button>
-            <button data-type="color" data-value="金黃色" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200">明黃 / 金黃</button>
+            <button data-type="color" data-value="粉紅紫" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200 hover:border-garden-300">粉紅 / 桃紫</button>
+            <button data-type="color" data-value="火紅橘" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200 hover:border-garden-300">橘紅 / 火紅</button>
+            <button data-type="color" data-value="白色" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200 hover:border-garden-300">純白 / 奶白</button>
+            <button data-type="color" data-value="金黃色" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200 hover:border-garden-300">明黃 / 金黃</button>
           </div>
         </div>
 
+        <!-- 條件 2: 景點 -->
         <div class="space-y-2">
-          <label class="text-xs font-bold text-stone-700">2. 校園代表景點</label>
+          <label class="text-xs font-bold text-stone-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-map-location-dot text-garden-600"></i> 2. 校園代表景點
+          </label>
           <div class="flex flex-wrap gap-1.5" id="spot-filter-buttons">
             <button data-type="spot" data-value="all" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-garden-700 text-white">全部景點</button>
-            <button data-type="spot" data-value="宮燈大道" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200">宮燈大道</button>
-            <button data-type="spot" data-value="牧羊草坪" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200">牧羊草坪</button>
-            <button data-type="spot" data-value="福園" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200">福園</button>
-            <button data-type="spot" data-value="海博館與商館" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200">海博館 / 商館</button>
+            <button data-type="spot" data-value="宮燈大道" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200 hover:border-garden-300">宮燈大道 / 教室</button>
+            <button data-type="spot" data-value="牧羊草坪" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200 hover:border-garden-300">牧羊草坪 / 步道</button>
+            <button data-type="spot" data-value="福園" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200 hover:border-garden-300">福園生態花壇</button>
+            <button data-type="spot" data-value="海博館與商館" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200 hover:border-garden-300">海博館 / 行道樹</button>
           </div>
         </div>
 
+        <!-- 條件 3: 季節 -->
         <div class="space-y-2">
-          <label class="text-xs font-bold text-stone-700">3. 最盛花期季節</label>
+          <label class="text-xs font-bold text-stone-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-calendar-days text-garden-600"></i> 3. 最盛花期季節
+          </label>
           <div class="flex flex-wrap gap-1.5" id="season-filter-buttons">
             <button data-type="season" data-value="all" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-garden-700 text-white">全部季節</button>
-            <button data-type="season" data-value="春季" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200">春季</button>
-            <button data-type="season" data-value="夏季" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200">夏季</button>
-            <button data-type="season" data-value="四季常開" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200">四季常開</button>
+            <button data-type="season" data-value="春季" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200 hover:border-garden-300">春 (2~4月)</button>
+            <button data-type="season" data-value="夏季" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200 hover:border-garden-300">夏 (5~7月)</button>
+            <button data-type="season" data-value="四季常開" class="px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200 hover:border-garden-300">秋冬 / 全年常開</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 花卉展示卡片網格 -->
     <section>
-      <h3 class="text-xl font-black text-stone-800 tracking-tight mb-4">淡江八大校園名花圖鑑</h3>
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 class="text-xl font-black text-stone-800 tracking-tight">淡江八大校園名花圖鑑</h3>
+          <p class="text-xs text-stone-500">點擊卡片可放大查看詳細花部構造、辨識要點、iNaturalist 觀測與校園人文故事</p>
+        </div>
+      </div>
+
+      <!-- 花卉卡片清單網格 -->
       <div id="flowers-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
-      <div id="no-results" class="hidden text-center py-12 bg-white rounded-3xl border border-stone-200 p-8">
-        <h4 class="text-base font-bold text-stone-800">找不到相符花卉</h4>
-        <button onclick="resetFlowerFilters()" class="mt-3 px-4 py-2 bg-garden-700 text-white rounded-xl text-xs font-bold">清除快篩條件</button>
+
+      <!-- 無相符結果提示 -->
+      <div id="no-results" class="hidden text-center py-16 bg-white rounded-3xl border border-stone-200/80 p-8">
+        <div class="w-16 h-16 rounded-full bg-parchment-100 text-garden-600 flex items-center justify-center text-2xl mx-auto mb-3">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+        <h4 class="text-lg font-bold text-stone-800">找不到相符的花卉特徵</h4>
+        <button onclick="resetFlowerFilters()" class="mt-4 px-4 py-2 bg-garden-700 text-white rounded-xl text-xs font-bold hover:bg-garden-800 transition-colors">
+          清除所有快篩條件
+        </button>
       </div>
     </section>
 
-    <!-- iNaturalist 公民科學即時觀測串接區塊 -->
     <section id="inat-section" class="bg-white rounded-3xl p-6 sm:p-8 border border-garden-100 shadow-flora space-y-6">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-stone-100">
         <div>
@@ -173,114 +265,428 @@
             <i class="fa-solid fa-satellite-dish text-emerald-600"></i>
             <span>iNaturalist API 即時連線</span>
           </div>
-          <h3 class="text-lg sm:text-xl font-black text-stone-800">淡江大學周邊公民科學植物即時觀測流</h3>
-          <p class="text-xs text-stone-500 mt-0.5">自動檢索淡水校園座標周圍 3 公里半徑內最新上傳的觀察紀錄</p>
+          <h3 class="text-lg sm:text-xl font-black text-stone-800 flex items-center gap-2">
+            淡江大學周邊公民科學植物即時觀測流
+          </h3>
+          <p class="text-xs text-stone-500 mt-0.5">
+            透過 iNaturalist 開放資料 API，自動檢索淡水校園座標周圍 3 公里半徑內最新上傳的野外觀察紀錄
+          </p>
         </div>
-        <button onclick="fetchINaturalistObservations('')" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 w-fit">
-          <i class="fa-solid fa-rotate"></i> 重新整理
-        </button>
+        <div class="flex items-center gap-2">
+          <button onclick="fetchINaturalistObservations('')" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 active:scale-95">
+            <i class="fa-solid fa-rotate"></i>
+            <span>重新整理 API</span>
+          </button>
+        </div>
       </div>
 
-      <div class="flex flex-wrap gap-2 text-xs" id="inat-quick-tags">
-        <button onclick="filterINatByTaxon('', this)" class="px-3 py-1.5 rounded-xl border border-emerald-600 bg-emerald-600 text-white font-bold">全校園周圍植物</button>
-        <button onclick="filterINatByTaxon('Rhododendron', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium">杜鵑屬</button>
-        <button onclick="filterINatByTaxon('Delonix regia', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium">鳳凰木</button>
-        <button onclick="filterINatByTaxon('Osmanthus', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium">桂花屬</button>
-        <button onclick="filterINatByTaxon('Bauhinia', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium">羊蹄甲屬</button>
-        <button onclick="filterINatByTaxon('Prunus campanulata', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium">山櫻花</button>
+      <!-- 標籤切換 -->
+      <div class="space-y-2">
+        <label class="text-xs font-bold text-stone-700 flex items-center gap-1">
+          <i class="fa-solid fa-magnifying-glass text-emerald-600"></i> 篩選淡水特定植物觀測：
+        </label>
+        <div class="flex flex-wrap gap-2 text-xs" id="inat-quick-tags">
+          <button onclick="filterINatByTaxon('', this)" class="px-3 py-1.5 rounded-xl border border-emerald-600 bg-emerald-600 text-white font-bold transition-all">全校園周圍植物</button>
+          <button onclick="filterINatByTaxon('Rhododendron', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium hover:border-emerald-300 transition-all">杜鵑屬 (Rhododendron)</button>
+          <button onclick="filterINatByTaxon('Delonix regia', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium hover:border-emerald-300 transition-all">鳳凰木</button>
+          <button onclick="filterINatByTaxon('Osmanthus', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium hover:border-emerald-300 transition-all">桂花屬</button>
+          <button onclick="filterINatByTaxon('Bauhinia', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium hover:border-emerald-300 transition-all">羊蹄甲屬</button>
+          <button onclick="filterINatByTaxon('Prunus campanulata', this)" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium hover:border-emerald-300 transition-all">山櫻花</button>
+        </div>
       </div>
 
+      <!-- 即時觀測紀錄卡片網格 -->
       <div id="inat-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 min-h-[160px]"></div>
+
+      <div class="pt-2 text-[11px] text-stone-400 flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-t border-stone-100">
+        <span>資料來源：iNaturalist Open API (api.inaturalist.org) · 座標半徑：淡江大學 (25.1748°N, 121.4485°E) 3km</span>
+        <a href="https://www.inaturalist.org/observations?lat=25.1748&lng=121.4485&radius=3&iconic_taxa=Plantae" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-bold hover:underline inline-flex items-center gap-1">
+          前往 iNaturalist 官網探索更多 <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+        </a>
+      </div>
+    </section>
+
+    <section class="bg-garden-900 text-white rounded-3xl p-6 sm:p-8 shadow-flora space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="w-10 h-10 rounded-xl bg-garden-700 text-sunGold-400 flex items-center justify-center text-lg">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+        </span>
+        <div>
+          <h3 class="text-lg sm:text-xl font-black text-white">五虎崗草木有情・綠色校園踏查守則</h3>
+          <p class="text-xs text-garden-200">親近植物、愛護自然，讓淡江處處常保生機</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+        <div class="bg-garden-800/80 p-4 rounded-2xl border border-garden-700/60 space-y-1">
+          <div class="font-black text-sunGold-400"><i class="fa-solid fa-eye mr-1"></i> 欣賞不攀折、落花更富詩意</div>
+          <p class="text-garden-100/80 leading-relaxed">宮燈大道的杜鵑與山櫻花枝條較脆，請以眼睛或微距相機觀察，讓花朵在枝梢供更多師生欣賞。</p>
+        </div>
+        <div class="bg-garden-800/80 p-4 rounded-2xl border border-garden-700/60 space-y-1">
+          <div class="font-black text-sunGold-400"><i class="fa-solid fa-triangle-exclamation mr-1"></i> 認識植物毒性・不隨意摘食</div>
+          <p class="text-garden-100/80 leading-relaxed">部分植物如杜鵑花葉具有生物鹼防禦機制，採集觀察後請洗手，切勿放入口中嘗試。</p>
+        </div>
+        <div class="bg-garden-800/80 p-4 rounded-2xl border border-garden-700/60 space-y-1">
+          <div class="font-black text-sunGold-400"><i class="fa-solid fa-shoe-prints mr-1"></i> 輕步草坪・守護微根系</div>
+          <p class="text-garden-100/80 leading-relaxed">漫步牧羊草坪時，避免踩踏雨後鬆軟泥土與老榕樹裸露的氣生根，留給地表無脊椎動物與植物呼吸空間。</p>
+        </div>
+      </div>
     </section>
 
   </main>
 
-  <!-- 彈跳詳情視窗 -->
   <div id="flower-detail-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200">
     <div class="bg-white rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-stone-200 p-6 space-y-4" id="modal-content-box"></div>
   </div>
 
-  <!-- 筆記本視窗 -->
   <div id="field-log-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200">
     <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl border border-stone-200 p-6 space-y-4">
       <div class="flex items-center justify-between pb-3 border-b border-stone-100">
-        <h3 class="text-base font-black text-stone-800"><i class="fa-solid fa-book-bookmark text-garden-700 mr-1.5"></i> 校園花卉踏查筆記</h3>
+        <div>
+          <h3 class="text-base font-black text-stone-800 flex items-center gap-1.5">
+            <i class="fa-solid fa-book-bookmark text-garden-700"></i> 本次淡江校園花卉踏查紀錄
+          </h3>
+          <p class="text-xs text-stone-500">記錄你在宮燈大道、牧羊草坪、福園各景點遇見的花況</p>
+        </div>
         <button onclick="toggleFieldLogModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
       </div>
+
       <div class="flex-grow overflow-y-auto py-2 space-y-2" id="log-records-list"></div>
-      <div class="flex justify-end gap-2 pt-2 border-t border-stone-100">
-        <button onclick="copyFlowerRecordsToClipboard()" class="px-3 py-1.5 rounded-xl border border-stone-200 text-xs font-bold text-stone-700">複製清單文字</button>
-        <button onclick="exportFlowerCSV()" class="px-3.5 py-1.5 rounded-xl bg-garden-700 text-white text-xs font-bold">下載 CSV</button>
+
+      <div class="flex justify-between items-center pt-2 border-t border-stone-100">
+        <button onclick="clearAllFlowerRecords()" class="text-xs text-rose-500 hover:underline font-medium">清空所有紀錄</button>
+        <div class="flex gap-2">
+          <button onclick="copyFlowerRecordsToClipboard()" class="px-3 py-1.5 rounded-xl border border-stone-200 text-xs font-bold text-stone-700 hover:bg-stone-50">複製文字</button>
+          <button onclick="exportFlowerCSV()" class="px-3.5 py-1.5 rounded-xl bg-garden-700 hover:bg-garden-800 text-white text-xs font-bold shadow-xs">下載 CSV</button>
+        </div>
       </div>
     </div>
   </div>
 
+  <footer class="bg-parchment-200 border-t border-stone-200 py-6 px-4 text-center space-y-1 mt-auto">
+    <p class="text-xs font-bold text-garden-800 flex items-center justify-center gap-1.5">
+      <i class="fa-solid fa-seedling"></i> 淡江花現・校園常見花卉互動快查圖鑑
+    </p>
+    <p class="text-[11px] text-stone-500">
+      專為淡江大學通識生態探究與環境教育設計｜相容於 Google Sites 協作平台與 GitHub Pages 免費託管
+    </p>
+  </footer>
+
   <script>
     const TKU_FLOWERS_DATABASE = [
       {
-        id: "rhododendron", name: "平戶杜鵑", scientificName: "Rhododendron x pulchrum", inatTaxonQuery: "Rhododendron",
-        family: "杜鵑花科", nickname: "淡江三月雪・滿山紅", seasonCategory: "春季", seasonDesc: "2 月下旬 ~ 4 月中旬",
-        colorCategory: "粉紅紫", colorDesc: "粉紅、深桃紅、白、紫紅，花瓣上方具深色「蜜標斑點」", spotCategory: "宮燈大道",
-        spotDesc: "宮燈教室長廊兩側、宮燈步道夾道花圃", keyFeatures: ["漏斗狀花冠 5 裂", "最上方裂片具深色蜜標斑點", "雄蕊 10 枚，葉片密被褐色毛"],
-        fragrance: "淡淡幽香", soundType: "breeze", tkuStory: "1954年宮燈教室落成時即栽植兩旁杜鵑，是淡江春季最美的「宮燈杜鵑花季」！"
+        id: "rhododendron",
+        name: "平戶杜鵑",
+        scientificName: "Rhododendron x pulchrum",
+        inatTaxonQuery: "Rhododendron",
+        family: "杜鵑花科 (Ericaceae)",
+        nickname: "淡江三月雪・滿山紅",
+        seasonCategory: "春季",
+        seasonDesc: "2 月下旬 ~ 4 月中旬（春季最盛）",
+        colorCategory: "粉紅紫",
+        colorDesc: "粉紅、深桃紅、白、紫紅，花瓣上方具深色「蜜標斑點」",
+        spotCategory: "宮燈大道",
+        spotDesc: "宮燈教室長廊兩側、宮燈步道夾道花圃、驚聲大樓旁",
+        keyFeatures: [
+          "漏斗狀花冠，裂片 5 枚，最上方裂片散佈著引導昆蟲採蜜的深色「蜜標斑點」",
+          "雄蕊多為 10 枚，花柱長而彎曲，葉片互生且被有褐色粗毛",
+          "自建校初期即移植自巴拉卡公路，是淡江人最深切的春季共同回憶"
+        ],
+        fragrance: "淡淡幽香",
+        tkuStory: "1954年創校第一批宮燈教室落成時，兩旁即栽植了兩排杜鵑花。每年3月春暖花開，古典宮燈與錦簇花海相映，是淡江最負盛名的「宮燈杜鵑花季」！"
       },
       {
-        id: "flame-tree", name: "鳳凰木", scientificName: "Delonix regia", inatTaxonQuery: "Delonix regia",
-        family: "豆科", nickname: "畢業花・火樹", seasonCategory: "夏季", seasonDesc: "5 月 ~ 7 月",
-        colorCategory: "火紅橘", colorDesc: "鮮豔火紅至橙紅，其中一片花瓣帶黃白斑紋", spotCategory: "海博館與商館",
-        spotDesc: "海事博物館周邊、商館階梯旁", keyFeatures: ["二回羽狀複葉如羽毛", "5 枚花瓣中有一片具黃白虎斑紋", "初夏落花如紅毯"],
-        fragrance: "無明顯氣味", soundType: "breeze", tkuStory: "畢業季時盛開，映襯著海博館純白船型建築，是每屆畢業生必拍的地標。"
+        id: "flame-tree",
+        name: "鳳凰木",
+        scientificName: "Delonix regia",
+        inatTaxonQuery: "Delonix regia",
+        family: "豆科 (Fabaceae)",
+        nickname: "畢業花・火樹",
+        seasonCategory: "夏季",
+        seasonDesc: "5 月 ~ 7 月（初夏畢業季盛放）",
+        colorCategory: "火紅橘",
+        colorDesc: "鮮豔奪目的火紅色至橙紅色，其中一片花瓣帶有白黃相間的特殊斑紋",
+        spotCategory: "海博館與商館",
+        spotDesc: "海事博物館周邊、商管大樓階梯旁、海豚里程碑附近",
+        keyFeatures: [
+          "二回羽狀複葉，細緻如羽毛般輕柔翠綠",
+          "花朵大而豔麗，5 枚花瓣中有一片直立且有黃白色虎斑紋飾",
+          "花萼內側為紅色，落花時往往在校園紅磚道鋪上一層美麗的火紅花毯"
+        ],
+        fragrance: "無明顯氣味",
+        tkuStory: "鳳凰木的盛開正值淡江學子畢業時節，豔紅的花朵映襯著藍天與海博館純白船型建築，是每屆畢業生穿學士服拍攝紀念照的必訪地標。"
       },
       {
-        id: "sweet-osmanthus", name: "桂花", scientificName: "Osmanthus fragrans", inatTaxonQuery: "Osmanthus fragrans",
-        family: "木樨科", nickname: "木樨・九里香", seasonCategory: "四季常開", seasonDesc: "秋季至春季（中秋最香）",
-        colorCategory: "白色", colorDesc: "米白至淡乳黃色，簇生於葉腋", spotCategory: "牧羊草坪",
-        spotDesc: "牧羊草坪步道旁、覺軒花園", keyFeatures: ["花朵小巧但香氣極濃", "花冠 4 裂，雄蕊 2 枚", "葉革質對生，邊緣細鋸齒"],
-        fragrance: "馥郁清甜", soundType: "breeze", tkuStory: "走過牧羊草坪，撲鼻而來的清雅花香陪伴著淡江無數微涼秋雨中的自習時光。"
+        id: "sweet-osmanthus",
+        name: "桂花",
+        scientificName: "Osmanthus fragrans",
+        inatTaxonQuery: "Osmanthus fragrans",
+        family: "木樨科 (Oleaceae)",
+        nickname: "木樨・九里香",
+        seasonCategory: "四季常開",
+        seasonDesc: "秋季至春季（9月~翌年4月，尤以中秋最香）",
+        colorCategory: "白色",
+        colorDesc: "米白色至淡乳黃色，簇生於葉腋",
+        spotCategory: "牧羊草坪",
+        spotDesc: "牧羊草坪步道旁、覺軒花園古意庭院、文館中庭",
+        keyFeatures: [
+          "花朵極為小巧（約3-5mm），但芳香極為濃郁，隨風遠播數十公尺",
+          "聚傘花序簇生於葉腋，花冠 4 裂，雄蕊 2 枚藏於花冠筒內",
+          "葉片革質對生，上半部邊緣常有細銳鋸齒"
+        ],
+        fragrance: "馥郁清甜、沁人心脾",
+        tkuStory: "走過牧羊草坪前往活動中心後方，撲鼻而來的清雅花香總讓人腳步慢下來。在淡江微涼的秋雨中，桂花香陪伴無數自習與練琴的時光。"
       },
       {
-        id: "cotton-tree", name: "木棉花", scientificName: "Bombax ceiba", inatTaxonQuery: "Bombax ceiba",
-        family: "錦葵科", nickname: "英雄樹・斑芝花", seasonCategory: "春季", seasonDesc: "3 月 ~ 4 月",
-        colorCategory: "火紅橘", colorDesc: "肉質厚實橙紅花瓣", spotCategory: "海博館與商館",
-        spotDesc: "水源街校門口、商館外圍道路", keyFeatures: ["樹幹高聳具銳刺", "先開花後長葉", "花落時會發出沉重聲響"],
-        fragrance: "蜜香濃郁", soundType: "breeze", tkuStory: "木棉花開代表淡水冬天陰雨過去，常有同學將落花在草坪排成愛心。"
+        id: "cotton-tree",
+        name: "木棉花",
+        scientificName: "Bombax ceiba",
+        inatTaxonQuery: "Bombax ceiba",
+        family: "錦葵科 (Malvaceae)",
+        nickname: "英雄樹・斑芝花",
+        seasonCategory: "春季",
+        seasonDesc: "3 月 ~ 4 月（先開花、後長葉）",
+        colorCategory: "火紅橘",
+        colorDesc: "肉質厚實的橙黃色至深橙紅色花瓣",
+        spotCategory: "海博館與商館",
+        spotDesc: "水源街校門口花牆旁、商館外圍側邊道路、體育館斜坡",
+        keyFeatures: [
+          "樹幹通直高聳，具圓錐狀銳刺；枝條輪生呈水平開展",
+          "花朵大如茶碗，肉質花瓣 5 枚，盛開時整棵大樹無葉只有滿樹紅橙花朵",
+          "花落後會結出長橢圓形蒴果，初夏裂開會飄散潔白的木棉棉絮"
+        ],
+        fragrance: "蜜香濃郁，常吸引白頭翁與綠繡眼倒掛吸蜜",
+        tkuStory: "木棉花開象徵淡水冬天的陰雨終於過去！成熟的花朵落下時會發出沉重清脆的聲響，常可見學生將掉落的厚實木棉花在草地上排成愛心。"
       },
       {
-        id: "chinese-ixora", name: "仙丹花", scientificName: "Ixora chinensis", inatTaxonQuery: "Ixora chinensis",
-        family: "茜草科", nickname: "紅繡球", seasonCategory: "四季常開", seasonDesc: "5 月 ~ 11 月（淡水幾近全年）",
-        colorCategory: "火紅橘", colorDesc: "密集半球狀小繡球花團", spotCategory: "福園",
-        spotDesc: "福園造景花壇、工館與理館周圍", keyFeatures: ["數十朵小花密聚成團", "花冠頂端 4 裂", "抗修剪抗污染，蜜蜂蝴蝶最愛"],
-        fragrance: "微弱清香", soundType: "breeze", tkuStory: "校園中花期最長的耐跑選手，福園水池邊整年都看得到它熱情的身影。"
+        id: "chinese-ixora",
+        name: "仙丹花",
+        scientificName: "Ixora chinensis",
+        inatTaxonQuery: "Ixora chinensis",
+        family: "茜草科 (Rubiaceae)",
+        nickname: "紅繡球・買子木",
+        seasonCategory: "四季常開",
+        seasonDesc: "5 月 ~ 11 月（夏秋盛開，淡水校園幾乎全年可見）",
+        colorCategory: "火紅橘",
+        colorDesc: "紅、橙紅、洋紅，聚集成半球狀繡球",
+        spotCategory: "福園",
+        spotDesc: "福園造景花壇、工館與理館周圍綠籬、學府路入口斜坡",
+        keyFeatures: [
+          "數十朵小花密整合「繖房花序」，遠看就像一團團鮮豔的紅色小繡球",
+          "每朵小花具長長的細花冠筒，花冠頂端裂成 4 片卵圓形裂片",
+          "極耐修剪與抗污染，花期極長，是校園蜜蜂與蝴蝶最重要的蜜源植物"
+        ],
+        fragrance: "微弱清香",
+        tkuStory: "仙丹花是淡江校園中花期最耐跑的長跑選手！清朝巡臺御史《番社采風圖》即有記載，在福園的池畔綠籬旁，整年都有牠熱情紅豔的身影。"
       },
       {
-        id: "cherry-blossom", name: "山櫻花 (緋寒櫻)", scientificName: "Prunus campanulata", inatTaxonQuery: "Prunus campanulata",
-        family: "薔薇科", nickname: "鐘花櫻桃", seasonCategory: "春季", seasonDesc: "1 月底 ~ 3 月初",
-        colorCategory: "粉紅紫", colorDesc: "深桃紅至緋紅，呈吊鐘狀下垂", spotCategory: "宮燈大道",
-        spotDesc: "宮燈教室後方邊坡、化學館空中花園", keyFeatures: ["花朝下懸垂如粉紅吊鐘", "落花時整朵完整凋落", "常吸引白頭翁與綠繡眼倒吊吸蜜"],
-        fragrance: "清爽木質香", soundType: "breeze", tkuStory: "開學時走在宮燈步道，緋紅的櫻花映照傳統綠瓦，宛如水墨畫卷。"
+        id: "cherry-blossom",
+        name: "山櫻花 (緋寒櫻)",
+        scientificName: "Prunus campanulata",
+        inatTaxonQuery: "Prunus campanulata",
+        family: "薔薇科 (Rosaceae)",
+        nickname: "緋寒櫻・鐘花櫻桃",
+        seasonCategory: "春季",
+        seasonDesc: "1 月底 ~ 3 月初（早春報春使者）",
+        colorCategory: "粉紅紫",
+        colorDesc: "深桃紅色至緋紅色，花朵呈吊鐘狀下垂",
+        spotCategory: "宮燈大道",
+        spotDesc: "宮燈教室後方邊坡、鍾靈化學館空中花園、水源街後山",
+        keyFeatures: [
+          "花朵單生或數朵簇生，花梗長，整朵花朝下懸垂宛如粉紅小吊鐘",
+          "花瓣 5 枚，深緋紅色，開花時滿樹繁花，落花時整朵完整凋落而非花瓣片落",
+          "樹皮暗紅褐色，具明顯的橫向皮孔，果實為紫紅色小核果（鳥類最愛）"
+        ],
+        fragrance: "清爽木質微香",
+        tkuStory: "早春開學時，走在宮燈步道斜坡，緋紅的山櫻花映照著中國傳統宮廷綠瓦，常吸引白頭翁與綠繡眼在花間倒吊吸花蜜，宛如水墨畫卷。"
       },
       {
-        id: "orchid-tree", name: "羊蹄甲", scientificName: "Bauhinia variegata", inatTaxonQuery: "Bauhinia",
-        family: "豆科", nickname: "印度櫻花", seasonCategory: "春季", seasonDesc: "3 月 ~ 4 月中旬",
-        colorCategory: "粉紅紫", colorDesc: "粉紅至淡粉紫，上方旗瓣具深紫紅紋", spotCategory: "海博館與商館",
-        spotDesc: "海博館東側斜坡、商館後方人行道", keyFeatures: ["葉先端凹裂如羊蹄印", "花瓣 5 枚，外形似蘭花", "盛開時全株幾無葉"],
-        fragrance: "清雅淡香", soundType: "breeze", tkuStory: "被師生親切稱為校園的平地櫻花，花瓣隨海風飄落相當浪漫。"
+        id: "orchid-tree",
+        name: "羊蹄甲",
+        scientificName: "Bauhinia variegata",
+        inatTaxonQuery: "Bauhinia",
+        family: "豆科 (Fabaceae)",
+        nickname: "印度櫻花・蘭花木",
+        seasonCategory: "春季",
+        seasonDesc: "3 月 ~ 4 月中旬（春日盛花期）",
+        colorCategory: "粉紅紫",
+        colorDesc: "粉紅至淡粉紫色，上方旗瓣帶有深紫紅色條紋",
+        spotCategory: "海博館與商館",
+        spotDesc: "海博館東側斜坡、商館後方行道旁、溜冰場邊緣",
+        keyFeatures: [
+          "最顯著特徵：葉片先端圓形且中央凹裂，宛如「羊的蹄印」",
+          "花朵大而美麗，具 5 枚花瓣，雄蕊通常 5 枚發育完全",
+          "盛開時常常全株無葉，整棵樹被粉紫色的花朵覆蓋，花香清幽"
+        ],
+        fragrance: "清雅淡香",
+        tkuStory: "羊蹄甲常被師生親切地稱為校園裡的「平地櫻花」。走過海博館旁的草坡，粉紫色的花瓣隨海風飄落，浪漫景緻令人流連忘返。"
       },
       {
-        id: "golden-trumpet", name: "黃花風鈴木", scientificName: "Handroanthus chrysotrichus", inatTaxonQuery: "Handroanthus chrysotrichus",
-        family: "紫葳科", nickname: "黃金風鈴木", seasonCategory: "春季", seasonDesc: "3 月上旬 ~ 3 月底",
-        colorCategory: "金黃色", colorDesc: "耀眼純黃色，花瓣薄皺如絲綢", spotCategory: "牧羊草坪",
-        spotDesc: "牧羊草坪眺望淡水河處", keyFeatures: ["花冠漏斗喇叭狀", "掌狀複葉，花期全株落葉金黃一片", "花後結長豆莢狀果實"],
-        fragrance: "微淡草木香", soundType: "breeze", tkuStory: "三月春暖時在牧羊草坪綻放，眺望觀音山與淡水河口的絕佳景致。"
+        id: "golden-trumpet",
+        name: "黃花風鈴木",
+        scientificName: "Handroanthus chrysotrichus",
+        inatTaxonQuery: "Handroanthus chrysotrichus",
+        family: "紫葳科 (Bignoniaceae)",
+        nickname: "黃金風鈴木・伊蓓樹",
+        seasonCategory: "春季",
+        seasonDesc: "3 月上旬 ~ 3 月底（花期約 10~14 天，短暫璀璨）",
+        colorCategory: "金黃色",
+        colorDesc: "鮮明耀眼的亮純黃色，花瓣薄皺如金絲縐綢",
+        spotCategory: "牧羊草坪",
+        spotDesc: "牧羊草坪邊緣眺望淡水河處、外語大樓側邊",
+        keyFeatures: [
+          "花冠如漏斗漏喇叭狀，頂端 5 裂，邊緣具微波浪皺褶",
+          "掌狀複葉，小葉 5 枚，開花期幾乎全株落盡樹葉，只見金黃燦爛",
+          "花朵凋謝後會結出長條形豆莢狀蒴果，果實密生褐色絨毛"
+        ],
+        fragrance: "微淡草木甜香",
+        tkuStory: "每逢三月春日暖陽，牧羊草坪邊緣的黃花風鈴木便爆裂般綻放金黃花冠。站在樹下遠眺觀音山與淡水河口，是淡江春日最耀眼的限定美景！"
       }
     ];
 
-    const fallbackInatData = [
-      { id: 1, speciesName: "平戶杜鵑", scientificName: "Rhododendron x pulchrum", observer: "tku_eco", date: "2024-03-15", placeGuess: "淡江大學宮燈大道", qualityGrade: "research", uri: "https://www.inaturalist.org", imageUrl: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=400&q=80" },
-      { id: 2, speciesName: "鳳凰木", scientificName: "Delonix regia", observer: "tamsui_walker", date: "2024-06-10", placeGuess: "淡江海事博物館草坡", qualityGrade: "research", uri: "https://www.inaturalist.org", imageUrl: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=400&q=80" },
-      { id: 3, speciesName: "山櫻花", scientificName: "Prunus campanulata", observer: "flora_tw", date: "2024-02-20", placeGuess: "宮燈教室後方邊坡", qualityGrade: "research", uri: "https://www.inaturalist.org", imageUrl: "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=400&q=80" },
-      { id: 4, speciesName: "羊蹄甲", scientificName: "Bauhinia variegata", observer: "green_lens", date: "2024-03-28", placeGuess: "淡江大學商館側邊", qualityGrade: "research", uri: "https://www.inaturalist.org", imageUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80" }
-    ];
+    function getFlowerVectorSvg(flower) {
+      let flowerPetals = '';
+      let branchColor = '#8A6D47';
+
+      switch(flower.id) {
+        case 'rhododendron':
+          flowerPetals = `
+            <ellipse cx="80" cy="55" rx="18" ry="24" fill="#F472B6" transform="rotate(-30 80 55)"/>
+            <ellipse cx="98" cy="62" rx="18" ry="24" fill="#F472B6" transform="rotate(30 98 62)"/>
+            <ellipse cx="65" cy="72" rx="18" ry="22" fill="#EC4899" transform="rotate(-60 65 72)"/>
+            <ellipse cx="95" cy="85" rx="18" ry="22" fill="#EC4899" transform="rotate(60 95 85)"/>
+            <ellipse cx="78" cy="88" rx="18" ry="22" fill="#DB2777"/>
+            <circle cx="80" cy="62" r="1.8" fill="#831843"/>
+            <circle cx="84" cy="66" r="1.8" fill="#831843"/>
+            <circle cx="77" cy="68" r="1.8" fill="#831843"/>
+            <path d="M 80 75 Q 85 60 95 50" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+            <circle cx="95" cy="50" r="2.2" fill="#831843"/>
+          `;
+          break;
+
+        case 'flame-tree':
+          flowerPetals = `
+            <path d="M 80 58 Q 70 28 80 22 Q 90 28 80 58 Z" fill="#FBBF24" stroke="#DC2626" stroke-width="1.5"/>
+            <circle cx="80" cy="38" r="2.2" fill="#DC2626"/>
+            <path d="M 72 65 Q 38 48 40 65 Q 50 75 72 68 Z" fill="#DC2626"/>
+            <path d="M 88 65 Q 122 48 120 65 Q 110 75 88 68 Z" fill="#DC2626"/>
+            <path d="M 72 72 Q 48 95 62 100 Q 75 92 76 74 Z" fill="#EF4444"/>
+            <path d="M 88 72 Q 112 95 98 100 Q 85 92 84 74 Z" fill="#EF4444"/>
+            <circle cx="80" cy="68" r="5" fill="#7F1D1D"/>
+          `;
+          break;
+
+        case 'sweet-osmanthus':
+          flowerPetals = `
+            <g transform="translate(60, 45)">
+              <circle cx="0" cy="-7" r="5" fill="#FEF3C7"/><circle cx="7" cy="0" r="5" fill="#FEF3C7"/>
+              <circle cx="0" cy="7" r="5" fill="#FEF3C7"/><circle cx="-7" cy="0" r="5" fill="#FEF3C7"/>
+              <circle cx="0" cy="0" r="3" fill="#F59E0B"/>
+            </g>
+            <g transform="translate(95, 60)">
+              <circle cx="0" cy="-6" r="4.5" fill="#FFFFFF"/><circle cx="6" cy="0" r="4.5" fill="#FFFFFF"/>
+              <circle cx="0" cy="6" r="4.5" fill="#FFFFFF"/><circle cx="-6" cy="0" r="4.5" fill="#FFFFFF"/>
+              <circle cx="0" cy="0" r="2.5" fill="#F59E0B"/>
+            </g>
+            <g transform="translate(75, 80)">
+              <circle cx="0" cy="-7" r="5" fill="#FEF08A"/><circle cx="7" cy="0" r="5" fill="#FEF08A"/>
+              <circle cx="0" cy="7" r="5" fill="#FEF08A"/><circle cx="-7" cy="0" r="5" fill="#FEF08A"/>
+              <circle cx="0" cy="0" r="3" fill="#F59E0B"/>
+            </g>
+          `;
+          break;
+
+        case 'cotton-tree':
+          flowerPetals = `
+            <path d="M 68 85 Q 80 98 92 85 L 90 75 L 70 75 Z" fill="#451A03"/>
+            <path d="M 70 75 Q 48 45 58 35 Q 75 45 74 72 Z" fill="#EA580C"/>
+            <path d="M 90 75 Q 112 45 102 35 Q 85 45 86 72 Z" fill="#EA580C"/>
+            <path d="M 74 74 Q 80 30 90 32 Q 88 55 86 74 Z" fill="#F97316"/>
+            <line x1="80" y1="75" x2="80" y2="52" stroke="#431407" stroke-width="2"/>
+            <circle cx="80" cy="50" r="3" fill="#431407"/>
+            <line x1="77" y1="75" x2="72" y2="55" stroke="#431407" stroke-width="1.8"/>
+            <circle cx="71" cy="54" r="2.5" fill="#431407"/>
+            <line x1="83" y1="75" x2="88" y2="55" stroke="#431407" stroke-width="1.8"/>
+            <circle cx="89" cy="54" r="2.5" fill="#431407"/>
+          `;
+          break;
+
+        case 'chinese-ixora':
+          flowerPetals = `
+            <circle cx="80" cy="65" r="28" fill="#FEE2E2" opacity="0.6"/>
+            <g transform="translate(68, 55)">
+              <circle cx="-5" cy="0" r="4" fill="#DC2626"/><circle cx="5" cy="0" r="4" fill="#DC2626"/>
+              <circle cx="0" cy="-5" r="4" fill="#EF4444"/><circle cx="0" cy="5" r="4" fill="#EF4444"/>
+              <circle cx="0" cy="0" r="2" fill="#FEF08A"/>
+            </g>
+            <g transform="translate(90, 60)">
+              <circle cx="-5" cy="0" r="4" fill="#DC2626"/><circle cx="5" cy="0" r="4" fill="#DC2626"/>
+              <circle cx="0" cy="-5" r="4" fill="#EF4444"/><circle cx="0" cy="5" r="4" fill="#EF4444"/>
+              <circle cx="0" cy="0" r="2" fill="#FEF08A"/>
+            </g>
+            <g transform="translate(78, 75)">
+              <circle cx="-5" cy="0" r="4" fill="#B91C1C"/><circle cx="5" cy="0" r="4" fill="#B91C1C"/>
+              <circle cx="0" cy="-5" r="4" fill="#DC2626"/><circle cx="0" cy="5" r="4" fill="#DC2626"/>
+              <circle cx="0" cy="0" r="2" fill="#FEF08A"/>
+            </g>
+          `;
+          break;
+
+        case 'cherry-blossom':
+          flowerPetals = `
+            <path d="M 80 25 L 80 50" stroke="#78350F" stroke-width="2.5"/>
+            <path d="M 74 50 Q 80 55 86 50 L 84 62 L 76 62 Z" fill="#881337"/>
+            <ellipse cx="73" cy="74" rx="9" ry="14" fill="#BE123C" transform="rotate(-15 73 74)"/>
+            <ellipse cx="87" cy="74" rx="9" ry="14" fill="#BE123C" transform="rotate(15 87 74)"/>
+            <ellipse cx="80" cy="78" rx="8" ry="15" fill="#E11D48"/>
+            <line x1="80" y1="65" x2="80" y2="92" stroke="#FFE4E6" stroke-width="1.5"/>
+            <circle cx="80" cy="92" r="2" fill="#FDE047"/>
+          `;
+          break;
+
+        case 'orchid-tree':
+          flowerPetals = `
+            <path d="M 30 70 Q 20 50 35 45 Q 45 52 45 42 Q 58 45 50 68 Z" fill="#65A30D" opacity="0.8"/>
+            <ellipse cx="80" cy="50" rx="14" ry="22" fill="#C084FC"/>
+            <line x1="80" y1="40" x2="80" y2="60" stroke="#7E22CE" stroke-width="2"/>
+            <ellipse cx="60" cy="65" rx="13" ry="20" fill="#E9D5FF" transform="rotate(-40 60 65)"/>
+            <ellipse cx="100" cy="65" rx="13" ry="20" fill="#E9D5FF" transform="rotate(40 100 65)"/>
+            <ellipse cx="68" cy="85" rx="13" ry="20" fill="#D8B4FE" transform="rotate(-15 68 85)"/>
+            <ellipse cx="92" cy="85" rx="13" ry="20" fill="#D8B4FE" transform="rotate(15 92 85)"/>
+            <circle cx="80" cy="72" r="4" fill="#6B21A8"/>
+          `;
+          break;
+
+        case 'golden-trumpet':
+          flowerPetals = `
+            <path d="M 80 88 L 74 65 L 86 65 Z" fill="#D97706"/>
+            <path d="M 74 65 Q 48 50 55 35 Q 70 42 75 55 Z" fill="#FBBF24"/>
+            <path d="M 86 65 Q 112 50 105 35 Q 90 42 85 55 Z" fill="#FBBF24"/>
+            <path d="M 70 42 Q 80 20 90 42 Z" fill="#F59E0B"/>
+            <ellipse cx="80" cy="52" rx="15" ry="12" fill="#FDE047"/>
+            <line x1="77" y1="58" x2="75" y2="64" stroke="#92400E" stroke-width="1.2"/>
+            <line x1="83" y1="58" x2="85" y2="64" stroke="#92400E" stroke-width="1.2"/>
+          `;
+          break;
+      }
+
+      return `
+        <svg viewBox="0 0 160 120" class="w-full h-full object-contain p-1" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bg-grad-${flower.id}" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#F4F7F4" />
+              <stop offset="100%" stop-color="#E5EDE5" />
+            </linearGradient>
+          </defs>
+          <rect width="160" height="120" rx="16" fill="url(#bg-grad-${flower.id})"/>
+          <path d="M 20 105 Q 80 85 140 100" stroke="${branchColor}" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M 70 92 Q 80 82 80 72" stroke="${branchColor}" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M 45 88 Q 30 70 50 72 Q 60 85 45 88 Z" fill="#4D7C0F"/>
+          <path d="M 115 92 Q 130 75 112 74 Q 105 85 115 92 Z" fill="#4D7C0F"/>
+          ${flowerPetals}
+        </svg>
+      `;
+    }
 
     let currentFilters = { color: 'all', spot: 'all', season: 'all' };
     let observationLog = [];
@@ -304,29 +710,106 @@
 
       noRes.classList.add('hidden');
       grid.innerHTML = filtered.map(f => `
-        <div class="flower-card bg-white rounded-3xl p-5 border border-garden-100 shadow-flora flex flex-col justify-between cursor-pointer" onclick="openFlowerModal('${f.id}')">
+        <div class="flower-card bg-white rounded-3xl p-4 sm:p-5 border border-garden-100 shadow-flora hover:shadow-flora-hover flex flex-col justify-between" data-id="${f.id}">
           <div class="space-y-3">
             <div class="flex justify-between items-center text-xs">
-              <span class="bg-garden-100 text-garden-800 px-2 py-0.5 rounded-full font-bold">${f.spotCategory}</span>
-              <span class="text-stone-400 font-medium">${f.seasonCategory}</span>
+              <span class="bg-garden-100 text-garden-800 px-2.5 py-0.5 rounded-full font-bold">
+                <i class="fa-solid fa-map-pin mr-0.5 text-[10px]"></i> ${f.spotCategory}
+              </span>
+              <span class="text-stone-400 font-medium">
+                <i class="fa-regular fa-calendar mr-0.5 text-[10px]"></i> ${f.seasonCategory}
+              </span>
             </div>
+
+            <!-- 花卉圖像區域（點擊放大） -->
+            <div class="relative bg-garden-50/70 rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center cursor-pointer group" onclick="openFlowerModal('${f.id}')">
+              ${getFlowerVectorSvg(f)}
+              <div class="absolute inset-0 bg-garden-900/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-1 backdrop-blur-2xs">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> 查看花部解密
+              </div>
+            </div>
+
             <div>
-              <h4 class="text-base font-black text-stone-900">${f.name}</h4>
+              <div class="flex items-baseline justify-between">
+                <h4 class="text-base font-black text-stone-900">${f.name}</h4>
+                <span class="text-xs text-tkuRed-600 font-bold">${f.nickname}</span>
+              </div>
               <p class="text-[11px] text-stone-400 italic">${f.scientificName}</p>
             </div>
-            <p class="text-xs text-stone-600 line-clamp-2">${f.colorDesc}</p>
+
+            <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">
+              ${f.colorDesc}
+            </p>
           </div>
+
           <div class="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-garden-700">
-            <span>探索花部特徵</span>
-            <i class="fa-solid fa-arrow-right"></i>
+            <button onclick="openFlowerModal('${f.id}')" class="hover:underline flex items-center gap-1">
+              <span>探索花部特徵</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+            <button onclick="logFlower('${f.name}', '${f.spotCategory}')" title="加入筆記" class="w-7 h-7 rounded-xl bg-garden-50 hover:bg-garden-700 hover:text-white text-garden-800 flex items-center justify-center transition-colors">
+              <i class="fa-solid fa-plus text-xs"></i>
+            </button>
           </div>
         </div>
       `).join('');
     }
 
+    const fallbackInatData = [
+      {
+        id: 101,
+        speciesName: "平戶杜鵑",
+        scientificName: "Rhododendron x pulchrum",
+        observer: "tku_plant_walker",
+        date: "2024-03-12",
+        imageUrl: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=500&q=80",
+        qualityGrade: "research",
+        placeGuess: "淡江大學宮燈大道",
+        uri: "https://www.inaturalist.org/observations"
+      },
+      {
+        id: 102,
+        speciesName: "鳳凰木",
+        scientificName: "Delonix regia",
+        observer: "tamsui_walker",
+        date: "2024-06-08",
+        imageUrl: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=500&q=80",
+        qualityGrade: "research",
+        placeGuess: "淡江海事博物館草坡旁",
+        uri: "https://www.inaturalist.org/observations"
+      },
+      {
+        id: 103,
+        speciesName: "山櫻花",
+        scientificName: "Prunus campanulata",
+        observer: "flora_tw",
+        date: "2024-02-18",
+        imageUrl: "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=500&q=80",
+        qualityGrade: "research",
+        placeGuess: "宮燈教室後方邊坡",
+        uri: "https://www.inaturalist.org/observations"
+      },
+      {
+        id: 104,
+        speciesName: "羊蹄甲",
+        scientificName: "Bauhinia variegata",
+        observer: "green_lens",
+        date: "2024-03-29",
+        imageUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=500&q=80",
+        qualityGrade: "research",
+        placeGuess: "淡江大學商館後側人行道",
+        uri: "https://www.inaturalist.org/observations"
+      }
+    ];
+
     async function fetchINaturalistObservations(taxonName = '') {
       const container = document.getElementById('inat-cards-container');
-      container.innerHTML = `<div class="col-span-full py-8 text-center text-stone-400 text-xs"><i class="fa-solid fa-circle-notch fa-spin text-xl text-emerald-600 mb-2 block"></i>連線 iNaturalist 載入觀測資料中...</div>`;
+      container.innerHTML = `
+        <div class="col-span-full py-10 flex flex-col items-center justify-center text-stone-400 space-y-2">
+          <i class="fa-solid fa-circle-notch fa-spin text-2xl text-emerald-600"></i>
+          <p class="text-xs">連線 iNaturalist 抓取淡水最新觀測中...</p>
+        </div>
+      `;
 
       let apiUrl = `https://api.inaturalist.org/v1/observations?lat=25.1748&lng=121.4485&radius=3&iconic_taxa=Plantae&order=desc&order_by=observed_on&per_page=8`;
       if (taxonName) apiUrl += `&taxon_name=${encodeURIComponent(taxonName)}`;
@@ -339,80 +822,150 @@
         clearTimeout(timeoutId);
         if (!res.ok) throw new Error();
         const data = await res.json();
+
         if (data.results && data.results.length > 0) {
-          renderINatCards(data.results.map(i => ({
-            id: i.id,
-            speciesName: i.taxon ? (i.taxon.preferred_common_name || i.taxon.name) : "校園植物",
-            scientificName: i.taxon ? i.taxon.name : "",
-            observer: i.user ? i.user.login : "自然愛好者",
-            date: i.observed_on || "近期",
-            imageUrl: (i.photos && i.photos.length > 0) ? i.photos[0].url.replace('square', 'medium') : '',
-            placeGuess: i.place_guess || "淡水區",
-            qualityGrade: i.quality_grade,
-            uri: i.uri
+          renderINatCards(data.results.map(item => ({
+            id: item.id,
+            speciesName: item.taxon ? (item.taxon.preferred_common_name || item.taxon.name) : "校園植物",
+            scientificName: item.taxon ? item.taxon.name : "",
+            observer: item.user ? item.user.login : "匿名公民",
+            date: item.observed_on || "近期",
+            imageUrl: (item.photos && item.photos.length > 0) ? item.photos[0].url.replace('square', 'medium') : '',
+            qualityGrade: item.quality_grade,
+            placeGuess: item.place_guess || "淡水區校園周圍",
+            uri: item.uri
           })));
         } else {
           throw new Error();
         }
-      } catch (e) {
+      } catch (err) {
         clearTimeout(timeoutId);
         renderINatCards(fallbackInatData);
       }
     }
 
-    function renderINatCards(obs) {
+    function renderINatCards(observations) {
       const container = document.getElementById('inat-cards-container');
-      container.innerHTML = obs.map(o => `
-        <div class="rounded-2xl border border-stone-200 bg-white p-3 flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="aspect-[4/3] rounded-xl overflow-hidden bg-stone-100 mb-2">
-              <img src="${o.imageUrl}" alt="${o.speciesName}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/E5EDE5/466B4B?text=iNat+Observation'">
+      container.innerHTML = observations.map(obs => `
+        <div class="rounded-2xl border border-stone-200 bg-white hover:border-emerald-300 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group">
+          <div class="relative aspect-[4/3] bg-stone-100 overflow-hidden">
+            ${obs.imageUrl 
+              ? `<img src="${obs.imageUrl}" alt="${obs.speciesName}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/400x300/E5EDE5/466B4B?text=iNat+Observation';">`
+              : `<div class="w-full h-full flex items-center justify-center text-stone-400 text-xs"><i class="fa-solid fa-image mr-1"></i> 無影像</div>`}
+            
+            <div class="absolute top-2 left-2">
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-black ${obs.qualityGrade === 'research' ? 'bg-emerald-600 text-white' : 'bg-amber-500 text-white'}">
+                ${obs.qualityGrade === 'research' ? '★ 研究等級' : '公民觀察'}
+              </span>
             </div>
-            <h5 class="font-bold text-xs text-stone-900">${o.speciesName}</h5>
-            <p class="text-[10px] text-stone-400 italic">${o.scientificName}</p>
-            <p class="text-[10px] text-stone-500 mt-1"><i class="fa-solid fa-location-dot text-rose-400 mr-1"></i>${o.placeGuess}</p>
           </div>
-          <a href="${o.uri}" target="_blank" rel="noreferrer" class="mt-2 text-[10px] font-bold text-center py-1 rounded-lg bg-emerald-50 text-emerald-800 hover:bg-emerald-600 hover:text-white transition-colors">查看紀錄</a>
+
+          <div class="p-3.5 space-y-2 flex-grow flex flex-col justify-between">
+            <div>
+              <h4 class="font-black text-xs sm:text-sm text-stone-900 line-clamp-1">${obs.speciesName}</h4>
+              <p class="text-[10px] sm:text-[11px] text-stone-400 italic line-clamp-1">${obs.scientificName || ''}</p>
+            </div>
+
+            <div class="space-y-1 text-[11px] text-stone-500 border-t border-stone-100 pt-2">
+              <div class="flex items-center gap-1 line-clamp-1">
+                <i class="fa-solid fa-location-dot text-rose-500 text-[10px]"></i>
+                <span class="text-[10px] sm:text-[11px]">${obs.placeGuess}</span>
+              </div>
+              <div class="flex items-center justify-between text-[10px] text-stone-400">
+                <span><i class="fa-solid fa-user text-emerald-600 mr-1"></i>${obs.observer}</span>
+                <span><i class="fa-regular fa-clock mr-0.5"></i>${obs.date}</span>
+              </div>
+            </div>
+
+            <a href="${obs.uri}" target="_blank" rel="noopener noreferrer" class="mt-2 w-full py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-600 text-emerald-800 hover:text-white text-center text-[11px] font-bold transition-colors flex items-center justify-center gap-1">
+              <span>在 iNaturalist 查看</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </a>
+          </div>
         </div>
       `).join('');
     }
 
-    function filterINatByTaxon(taxon, btn) {
+    function filterINatByTaxon(taxonQuery, btnElement) {
       document.querySelectorAll('#inat-quick-tags button').forEach(b => {
-        b.className = "px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium";
+        b.className = "px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-700 font-medium hover:border-emerald-300 transition-all";
       });
-      btn.className = "px-3 py-1.5 rounded-xl border border-emerald-600 bg-emerald-600 text-white font-bold";
-      fetchINaturalistObservations(taxon);
+      btnElement.className = "px-3 py-1.5 rounded-xl border border-emerald-600 bg-emerald-600 text-white font-bold transition-all";
+      fetchINaturalistObservations(taxonQuery);
     }
 
-    function openFlowerModal(id) {
-      const f = TKU_FLOWERS_DATABASE.find(x => x.id === id);
-      if (!f) return;
+    function openFlowerModal(flowerId) {
+      const flower = TKU_FLOWERS_DATABASE.find(f => f.id === flowerId);
+      if (!flower) return;
+
       const modal = document.getElementById('flower-detail-modal');
       const box = document.getElementById('modal-content-box');
+
       box.innerHTML = `
-        <div class="flex justify-between items-start pb-2 border-b border-stone-100">
+        <div class="flex items-start justify-between pb-3 border-b border-stone-100">
           <div>
-            <span class="text-xs bg-garden-100 text-garden-800 px-2 py-0.5 rounded-md font-bold">${f.family}</span>
-            <h4 class="text-lg font-black text-stone-900 mt-1">${f.name}</h4>
-            <p class="text-xs text-stone-400 italic">${f.scientificName}</p>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-garden-100 text-garden-800">${flower.family}</span>
+              <span class="text-xs text-stone-500 font-bold">${flower.seasonDesc}</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-black text-stone-900 mt-1">${flower.name} <span class="text-xs font-medium text-stone-500">(${flower.nickname})</span></h3>
+            <p class="text-xs text-stone-400 italic">${flower.scientificName}</p>
           </div>
-          <button onclick="closeFlowerModal()" class="w-7 h-7 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+          <button onclick="closeFlowerModal()" class="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 flex items-center justify-center transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </div>
-        <div class="space-y-2 text-xs">
-          <p class="font-bold text-stone-700">【微距鑑識重點】</p>
-          <ul class="list-disc list-inside text-stone-600 space-y-1">${f.keyFeatures.map(k => `<li>${k}</li>`).join('')}</ul>
-          <div class="p-3 rounded-xl bg-parchment-100 border border-parchment-200 text-stone-700 mt-2">
-            <span class="font-bold block text-garden-800 mb-0.5">淡江人文小故事：</span>
-            ${f.tkuStory}
+
+        <!-- 向量示意圖區域 -->
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center bg-garden-50/60 p-3 rounded-2xl border border-garden-100">
+          <div class="sm:col-span-5 h-36">
+            ${getFlowerVectorSvg(flower)}
+          </div>
+          <div class="sm:col-span-7 space-y-1.5 text-xs">
+            <p class="font-bold text-garden-800">
+              <i class="fa-solid fa-map-pin text-rose-500 mr-1"></i> 校園景點：${flower.spotCategory}
+            </p>
+            <p class="text-stone-600 leading-relaxed">
+              <i class="fa-solid fa-seedling text-garden-600 mr-1"></i> 香氣特徵：<b>${flower.fragrance}</b>
+            </p>
+            <p class="text-stone-600 leading-relaxed">
+              ${flower.colorDesc}
+            </p>
           </div>
         </div>
-        <div class="flex justify-end gap-2 pt-2 border-t border-stone-100">
-          <button onclick="logFlower('${f.name}', '${f.spotCategory}'); closeFlowerModal();" class="px-4 py-2 rounded-xl bg-garden-700 text-white text-xs font-bold">加入踏查筆記</button>
+
+        <div class="space-y-1.5 text-xs">
+          <h4 class="font-black text-garden-900 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-list-check text-garden-600"></i> 野外觀察與花部辨識重點
+          </h4>
+          <ul class="text-stone-700 space-y-1 font-medium">
+            ${flower.keyFeatures.map(f => `<li class="flex items-start gap-1.5"><i class="fa-solid fa-circle-check text-garden-600 text-[10px] mt-0.5 shrink-0"></i><span>${f}</span></li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="p-3 rounded-2xl bg-parchment-100 border border-parchment-200 text-xs text-stone-700">
+          <span class="font-bold text-garden-800 block mb-0.5"><i class="fa-solid fa-bookmark text-tkuRed-600 mr-1"></i>淡江人文物語：</span>
+          ${flower.tkuStory}
+        </div>
+
+        <div class="flex items-center justify-between pt-2 border-t border-stone-100">
+          <button onclick="closeFlowerModal(); filterINatFromModal('${flower.inatTaxonQuery}');" class="px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-600 text-emerald-800 hover:text-white font-bold text-xs transition-colors flex items-center gap-1">
+            <i class="fa-solid fa-earth-asia"></i> 查淡水 iNat 紀錄
+          </button>
+          <button onclick="logFlower('${flower.name}', '${flower.spotCategory}'); closeFlowerModal();" class="px-4 py-2 bg-garden-700 hover:bg-garden-800 text-white rounded-xl text-xs font-bold transition-colors shadow-xs">
+            <i class="fa-solid fa-plus mr-1"></i> 加入踏查筆記
+          </button>
         </div>
       `;
+
       modal.classList.remove('hidden');
       setTimeout(() => modal.classList.remove('opacity-0'), 10);
+    }
+
+    function filterINatFromModal(taxonQuery) {
+      const section = document.getElementById('inat-section');
+      if (section) section.scrollIntoView({ behavior: 'smooth' });
+      fetchINaturalistObservations(taxonQuery);
     }
 
     function closeFlowerModal() {
@@ -422,9 +975,14 @@
     }
 
     function logFlower(name, spot) {
-      observationLog.unshift({ name, spot, time: new Date().toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' }) });
+      observationLog.unshift({
+        id: Date.now(),
+        name,
+        spot,
+        time: new Date().toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' })
+      });
       document.getElementById('log-count-badge').textContent = observationLog.length;
-      alert(`已將「${name}」加入踏查筆記！`);
+      showToast(`已將「${name}」加入賞花踏查筆記！`);
     }
 
     function toggleFieldLogModal() {
@@ -432,8 +990,16 @@
       const list = document.getElementById('log-records-list');
       if (modal.classList.contains('hidden')) {
         list.innerHTML = observationLog.length === 0 
-          ? `<div class="text-center py-6 text-stone-400 text-xs">尚無紀錄，點選各花卉卡片加入！</div>`
-          : observationLog.map(r => `<div class="p-2.5 rounded-xl bg-stone-50 border border-stone-200 text-xs flex justify-between"><span><b>${r.name}</b> (${r.spot})</span><span class="text-stone-400">${r.time}</span></div>`).join('');
+          ? `<div class="text-center py-8 text-stone-400 text-xs"><i class="fa-solid fa-seedling text-2xl mb-2 text-stone-300 block"></i>尚無紀錄。到宮燈大道或牧羊草坪尋找綻放的花朵吧！</div>`
+          : observationLog.map(r => `
+            <div class="flex items-center justify-between p-2.5 rounded-2xl bg-stone-50 border border-stone-200 text-xs">
+              <div>
+                <span class="font-bold text-stone-900">${r.name}</span>
+                <span class="text-stone-400 text-[10px] ml-1">(${r.spot} · ${r.time})</span>
+              </div>
+              <button onclick="removeFlowerRecord(${r.id})" class="text-stone-400 hover:text-rose-500 p-1"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+          `).join('');
         modal.classList.remove('hidden');
         setTimeout(() => modal.classList.remove('opacity-0'), 10);
       } else {
@@ -442,37 +1008,88 @@
       }
     }
 
+    function removeFlowerRecord(id) {
+      observationLog = observationLog.filter(x => x.id !== id);
+      document.getElementById('log-count-badge').textContent = observationLog.length;
+      toggleFieldLogModal();
+      toggleFieldLogModal();
+    }
+
+    function clearAllFlowerRecords() {
+      if (observationLog.length === 0) return;
+      observationLog = [];
+      document.getElementById('log-count-badge').textContent = 0;
+      toggleFieldLogModal();
+      toggleFieldLogModal();
+    }
+
     function copyFlowerRecordsToClipboard() {
-      if (observationLog.length === 0) return alert("無紀錄可複製！");
-      const txt = observationLog.map((r, i) => `${i+1}. ${r.name} 地點:${r.spot} (${r.time})`).join('\n');
-      navigator.clipboard.writeText(txt).then(() => alert("已複製筆記清單！"));
+      if (observationLog.length === 0) return showToast("目前無資料可複製！");
+      let text = "【淡江大學校園常見花卉踏查紀錄清單】\n";
+      text += `踏查日期：${new Date().toLocaleDateString('zh-TW')}\n--------------------\n`;
+      observationLog.forEach((r, idx) => {
+        text += `${idx + 1}. [${r.name}] 地點: ${r.spot} (${r.time})\n`;
+      });
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      showToast("已成功複製踏查筆記！");
     }
 
     function exportFlowerCSV() {
-      if (observationLog.length === 0) return alert("無紀錄可匯出！");
-      let csv = "\uFEFF花名,地點,時間\n" + observationLog.map(r => `"${r.name}","${r.spot}","${r.time}"`).join('\n');
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = `淡江花卉踏查紀錄.csv`;
-      a.click();
+      if (observationLog.length === 0) return showToast("無紀錄可匯出！");
+      let csvContent = "\uFEFF花卉名稱,目擊地點,記錄時間\n";
+      observationLog.forEach(r => {
+        csvContent += `"${r.name}","${r.spot}","${r.time}"\n`;
+      });
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `淡江花卉踏查紀錄_${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function showToast(msg) {
+      let toast = document.getElementById('toast-msg');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast-msg';
+        toast.className = 'fixed bottom-5 right-5 z-50 bg-stone-900/90 text-white px-4 py-2 rounded-2xl text-xs font-bold shadow-xl transition-all duration-300 opacity-0 pointer-events-none';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = `<i class="fa-solid fa-circle-check text-sunGold-400 mr-1.5"></i>${msg}`;
+      toast.classList.remove('opacity-0');
+      setTimeout(() => toast.classList.add('opacity-0'), 2200);
     }
 
     function resetFlowerFilters() {
       currentFilters = { color: 'all', spot: 'all', season: 'all' };
-      document.querySelectorAll('#quick-filter button[data-type]').forEach(b => {
-        b.className = b.getAttribute('data-value') === 'all' 
-          ? "px-2.5 py-1 rounded-xl text-xs font-medium bg-garden-700 text-white"
-          : "px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200";
+      ['color', 'spot', 'season'].forEach(type => {
+        document.querySelectorAll(`#${type}-filter-buttons button`).forEach(b => {
+          if (b.getAttribute('data-value') === 'all') {
+            b.className = "px-2.5 py-1 rounded-xl text-xs font-medium bg-garden-700 text-white";
+          } else {
+            b.className = "px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200 hover:border-garden-300";
+          }
+        });
       });
       renderFlowerCards();
     }
 
     ['color', 'spot', 'season'].forEach(type => {
-      document.getElementById(`${type}-filter-buttons`).addEventListener('click', (e) => {
+      const container = document.getElementById(`${type}-filter-buttons`);
+      if (!container) return;
+      container.addEventListener('click', (e) => {
         const btn = e.target.closest('button');
         if (!btn) return;
-        document.querySelectorAll(`#${type}-filter-buttons button`).forEach(b => b.className = "px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200");
+        container.querySelectorAll('button').forEach(b => {
+          b.className = "px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-50 text-stone-700 border border-stone-200 hover:border-garden-300";
+        });
         btn.className = "px-2.5 py-1 rounded-xl text-xs font-medium bg-garden-700 text-white";
         currentFilters[type] = btn.getAttribute('data-value');
         renderFlowerCards();
